@@ -243,11 +243,6 @@ var Tl={id:"highlight",HIGHLIGHT_STEP_DELIMITER:"|",HIGHLIGHT_LINE_DELIMITER:","
 			document.addEventListener('broadcast', e => {
 				window.parent.postMessage(JSON.stringify(e.content), '*');
 			})
-
-			Reveal.on( 'slidechanged', event => {
-  // event.previousSlide, event.currentSlide, event.indexh, event.indexv
-  console.log("yoyo", event);
-} );
 		</script>
 
 		
