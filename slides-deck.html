@@ -204,6 +204,8 @@ var Tl={id:"highlight",HIGHLIGHT_STEP_DELIMITER:"|",HIGHLIGHT_LINE_DELIMITER:","
 				height: SLConfig.deck.height,
 				margin: 0.05,
 				maxScale: 1,
+				postMessage: true,
+				postMessageEvents: true,
 
 				hash: true,
 				controls: true,
@@ -238,6 +240,9 @@ var Tl={id:"highlight",HIGHLIGHT_STEP_DELIMITER:"|",HIGHLIGHT_LINE_DELIMITER:","
 
 				plugins: [ RevealHighlight ]
 			});
+			document.addEventListener('broadcast', e => {
+				window.parent.postMessage(JSON.stringify(e.content), '*');
+			})
 
 			Reveal.on( 'slidechanged', event => {
   // event.previousSlide, event.currentSlide, event.indexh, event.indexv
