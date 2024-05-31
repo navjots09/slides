@@ -115,6 +115,6 @@ window.addEventListener('message', (e) => {
   if (e?.data?.sender === 'chalkboard-plugin') {
     let event = new CustomEvent('received');
     event.content = e.data;
-    frame.current.contentWindow.document.dispatchEvent(event);
+    window.document.dispatchEvent(event);
   }
 });
