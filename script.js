@@ -86,10 +86,7 @@ const config = {
       { color: 'rgba(255,220,0,0.5)', cursor: 'url(' + path + 'img/chalk-yellow.png), auto' },
     ],
   },
-  plugins: [RevealChalkboard, RevealCustomControls],
 };
-//Add Plugins
-Reveal.registerPlugin(RevealChalkboard);
 
 if (isHost === 'true') {
   //Host Configs
@@ -106,6 +103,8 @@ if (isHost === 'true') {
     touch: false,
   });
 }
+//Add Plugins
+Reveal.registerPlugin(RevealChalkboard);
 
 document.addEventListener('broadcast', (e) => {
   window.parent.postMessage(JSON.stringify(e.content), '*');
