@@ -88,12 +88,15 @@ const config = {
   },
   plugins: [RevealChalkboard, RevealCustomControls],
 };
+//Add Plugins
+Reveal.registerPlugin(RevealChalkboard);
 
 if (isHost === 'true') {
   //Host Configs
   Reveal.configure({
     ...config,
   });
+  Reveal.registerPlugin(RevealCustomControls);
 } else {
   //Viewer Config
   Reveal.configure({
@@ -103,9 +106,6 @@ if (isHost === 'true') {
     touch: false,
   });
 }
-//Add Plugins
-Reveal.registerPlugin(RevealChalkboard);
-Reveal.registerPlugin(RevealCustomControls);
 
 document.addEventListener('broadcast', (e) => {
   window.parent.postMessage(JSON.stringify(e.content), '*');
