@@ -110,3 +110,10 @@ if (isHost === 'true') {
 document.addEventListener('broadcast', (e) => {
   window.parent.postMessage(JSON.stringify(e.content), '*');
 });
+
+window.addEventListener('message', (e) => {
+  console.log(e);
+  //   let event = new CustomEvent('received');
+  //   event.content = data;
+  //   frame.current.contentWindow.document.dispatchEvent(event);
+});
