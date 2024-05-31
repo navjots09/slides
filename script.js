@@ -112,8 +112,9 @@ document.addEventListener('broadcast', (e) => {
 });
 
 window.addEventListener('message', (e) => {
-  console.log(e);
-  //   let event = new CustomEvent('received');
-  //   event.content = data;
-  //   frame.current.contentWindow.document.dispatchEvent(event);
+  if (e?.data?.sender === 'chalkboard-plugin') {
+    let event = new CustomEvent('received');
+    event.content = e.data;
+    frame.current.contentWindow.document.dispatchEvent(event);
+  }
 });
